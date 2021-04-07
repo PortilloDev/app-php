@@ -1,7 +1,28 @@
 <?php
 
+require_once 'vendor/autoload.php';
 
-require_once('jobs.php');
+use Illuminate\Database\Capsule\Manager as Capsule;
+use App\Models\Job;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'php',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+// Make this Capsule instance available globally via static methods... (optional)
+$capsule->setAsGlobal();
+
+// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+$capsule->bootEloquent();
+require_once 'jobs.php';
 
 $name = "Iván Portillo";
 $mail = "ipp_1981@hotmail.com";
@@ -68,9 +89,7 @@ $limiteMonths = 24;
             <?php
             $totalMonths = 0;
             for ($indice = 0; $indice < count($jobs); $indice++) {
-                $totalMonths += $jobs[$indice]->getMonths();
-
-                printElement($jobs[$indice]);
+                 printElement($jobs[$indice]);
             }
             ?>
 
@@ -78,6 +97,15 @@ $limiteMonths = 24;
         </div>
         <div>
           <h3 class="border-bottom-gray">Projects</h3>
+
+          <ul>
+            <?php
+            for ($indice = 0; $indice < count($projects); $indice++) {
+                printElement($projects[$indice]);
+            }
+            ?>
+
+          </ul>
           <div class="project">
             <h5>Project X</h5>
             <div class="row">

@@ -1,11 +1,16 @@
 <?php
-class BaseElement
+
+
+
+namespace App\Models;
+
+class BaseElement implements Printable
 {
 
-    private $title;
-    private $description;
-    private $visible = true;
-    private $months;
+    public $title;
+    public $description;
+    public $visible = true;
+    public $months;
 
     public function __construct($title, $description)
     {
