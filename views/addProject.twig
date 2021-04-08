@@ -1,0 +1,18 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+  <h1>Add Project</h1>
+  <div class="alert alert-primary" role="alert">
+			{{  responseMessage }}
+	</div>
+    <form action="/app-php/projects/add" method="POST">
+        <label for="">Title: </label>
+        <input type="text" name="title">
+        <br>
+        <label for="">Description: </label>
+        <input type="text" name="description"> <br>
+        <button type="submit" name="save">Save</button>
+    </form>
+
+{% endblock %}
+
