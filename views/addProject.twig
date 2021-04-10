@@ -2,9 +2,11 @@
 
 {% block content %}
   <h1>Add Project</h1>
-  <div class="alert alert-primary" role="alert">
-			{{  responseMessage }}
-	</div>
+    {% if responseMessage %}
+		<div class="alert alert-primary" role="alert">
+				{{  responseMessage }}
+		</div>
+	{% endif %}
     <form action="/app-php/projects/add" method="POST">
         <label for="">Title: </label>
         <input type="text" name="title">

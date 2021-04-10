@@ -2,9 +2,11 @@
 
 {% block content %}
 	<h1>Add Job</h1>
-	<div class="alert alert-primary" role="alert">
-			{{  responseMessage }}
-	</div>
+	{% if responseMessage %}
+		<div class="alert alert-primary" role="alert">
+				{{  responseMessage }}
+		</div>
+	{% endif %}
 	<form action="/app-php/jobs/add" method="post" enctype="multipart/form-data">
 		<label for="">Title:
 		</label>
