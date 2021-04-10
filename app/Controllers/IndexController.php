@@ -12,11 +12,8 @@ class IndexController extends BaseController
     public function indexAction()
     {
 
-
         $jobs = Job::all();
-
         $projects = Project::all();
-
         $name = "Iván Portillo";
         $mail = "ipp_1981@hotmail.com";
         $phone = "682177179";
@@ -25,6 +22,13 @@ class IndexController extends BaseController
         $web_personal = "https://ivan-portillo-perez.com/";
         $gitHub = "https://github.com/PortilloDev";
         $limiteMonths = 24;
+
+        //uso de clousers o funciones anonimas
+       /* $filterFunction = function (array $job) {
+            return $job['months'] >= 9;
+        };
+        $jobs = array_filter($jobs->toArray(), $filterFunction);*/
+
 
         //carga la vista index
         return $this->renderHTML('index.twig', [

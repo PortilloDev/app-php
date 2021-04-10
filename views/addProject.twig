@@ -7,11 +7,12 @@
 				{{  responseMessage }}
 		</div>
 	{% endif %}
-    <form action="/app-php/projects/add" method="POST">
+    <form action="/app-php/projects/add" method="POST" enctype="multipart/form-data">
         <label for="">Title: </label>
         <input type="text" name="title">
         <br>
         <label for="">Description: </label>
+        <input type="file" name="file"><br><br>
         <input type="text" name="description"> <br>
         <button type="submit" name="save">Save</button>
     </form>

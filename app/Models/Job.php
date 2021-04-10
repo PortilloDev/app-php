@@ -3,13 +3,16 @@
 
 namespace App\Models;
 
+use App\Traits\HasDefaultImage;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Job extends Model
 {
     protected $table = 'jobs';
 
+    use HasDefaultImage;
+    use SoftDeletes;
 
     public function getDurationAsString()
     {

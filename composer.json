@@ -11,6 +11,13 @@
         "aura/router": "^3.1",
         "twig/twig": "^3.3",
         "respect/validation": "^2.0",
-        "vlucas/phpdotenv": "^5.3"
+        "vlucas/phpdotenv": "^5.3",
+        "php-di/php-di": "^6.3",
+        "woohoolabs/harmony": "^6.1",
+        "zendframework/zend-httphandlerrunner": "^1.1",
+        "middlewares/aura-router": "^2.0",
+        "psr/http-server-middleware": "^1.0",
+        "laminas/laminas-httphandlerrunner": "^1.2",
+        "psr/http-server-handler": "^1.0"
     }
 }

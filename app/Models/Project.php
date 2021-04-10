@@ -3,12 +3,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasDefaultImage;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
     protected $table = 'projects';
-
+    use HasDefaultImage;
+    
     public function getDurationAsString()
     {
         $years = floor($this->months / 12);

@@ -6,7 +6,7 @@ use App\Models\Users;
 use Respect\Validation\Validator as v;
 //redireccionamiento
 use Laminas\Diactoros\Response\RedirectResponse;
-
+use Laminas\Diactoros\ServerRequest;
 class AuthController extends BaseController
 {
     public function getLogin()
@@ -14,7 +14,7 @@ class AuthController extends BaseController
         return $this->renderHTML('login.twig');
     }
 
-    public function postLogin($request)
+    public function postLogin(ServerRequest $request)
     {
         $postData = $request->getParsedBody();
         $responseMessage = null;
@@ -23,7 +23,7 @@ class AuthController extends BaseController
         if ($user) {
             if (password_verify($postData['password'], $user->password)) {
                 $_SESSION['userId'] = $user->id;
-                return new RedirectResponse('/app-php/admin');
+                return new RedirectResponse('/admin');
             } else {
                 $responseMessage = 'Bad credentials';
             }
@@ -39,6 +39,6 @@ class AuthController extends BaseController
     public function getLogout()
     {
         unset($_SESSION['userId']);
-        return new RedirectResponse('/app-php/login');
+        return new RedirectResponse('/login');
     }
 }
